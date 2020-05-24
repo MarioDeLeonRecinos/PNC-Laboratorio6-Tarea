@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	
+	<form th:action="@{/formContribuyente}"  method="post" th:object="${contribuyente}">
+		
+		
+			<label>Nombre:</label>
+			<input type="text" name="s_nombre" th:field="${contribuyente.s_nombre}">
+			<span th:errors="*{s_nombre}" style="color:#ae3232;"></span><br>
+			
+			<label>Apellido:</label>
+			<input type="text" name="s_apellido" th:field="${contribuyente.s_apellido}">
+			<span th:errors="*{s_apellido}" style="color:#ae3232;"></span><br>
+			
+			<label>Nit:</label>
+			<input type="text" name="s_nit" th:field="${contribuyente.s_nit}">
+			<span th:errors="*{s_nit}" style="color:#ae3232;"></span><br>
+			
+			<select  th:field="*{c_importancia.c_importancia}">
+	  			<option th:each="impo : ${importancias}" 
+	  					th:value=${impo.c_importancia} 
+	  					th:text="${impo.s_importancia}">
+	  			</option>
+			</select><br>
+
+		<input type="submit"  value="Agregar Contribuyente">
+	</form>
+	<br><button  onclick="window.location.href='/verContribuyentes'">Ver contribuyente</button>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<table>
+		<thead>
+			<th scope="col">Nombre</th>
+			<th scope="col">Apellido</th>
+			<th scope="col">Nit</th>
+			<th scope="col">Fecha de Ingreso</th>
+			<th scope="col">Importancia</th>
+
+		</thead>
+		<th:block th:each="contribuyente,row:${contribuyentes}">
+			<tr>
+				<th scope="row" th:text="${contribuyente.s_nombre}" />
+				<th scope="row" th:text="${contribuyente.s_apellido}" />
+				<th scope="row" th:text="${contribuyente.s_nit}" />
+				<th scope="row" th:text="${contribuyente.f_fecha_ingreso}" />
+				<th scope="row"
+					th:text="${contribuyente.c_importancia.s_importancia}" />
+			</tr>
+		</th:block>
+	</table>
+</body>
+</html>
